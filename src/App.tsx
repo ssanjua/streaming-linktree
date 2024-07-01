@@ -8,6 +8,7 @@ const App = () => {
   
   return (
     <div className="flex flex-col mx-auto w-full h-full pt-10">
+      <h1> Verify Contribution </h1>
       <Profile />
       <StreamList />
       <VideoList />
