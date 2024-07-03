@@ -1,6 +1,11 @@
+import { authOptions } from '@/app/api/auth/[...nextauth]/route'
+import { getServerSession } from 'next-auth'
 import Link from 'next/link'
+import LogoutButton from './buttons/LogoutButton'
 
-export default function Header() {
+export default async function Header() {
+  const session = await getServerSession(authOptions)
+
   return (
     <div>
       <header className="bg-white py-4">
@@ -13,9 +18,22 @@ export default function Header() {
             </nav>
           </div>
           <div>
-            <nav className="flex gap-4 text-sm text-green">
-              <Link href={'/login'}>Login</Link>
-              <Link href={'/register'}>Crear cuenta</Link>
+            <nav className="flex items-center gap-4 text-sm text-green">
+              {session && (
+                <>
+                  <Link href="/account">
+                    Hello, {session?.user?.name}
+                  </Link>
+                  <LogoutButton />
+                </>
+              )}
+
+              {!session && (
+                <>
+                  <Link href={'/login'}>Login</Link>
+                  <Link href={'/register'}>Crear cuenta</Link>
+                </>
+              )}
             </nav>
           </div>
         </div>
