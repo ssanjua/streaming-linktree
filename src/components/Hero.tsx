@@ -1,3 +1,5 @@
+import HeroForm from './forms/HeroForm'
+
 export default function Hero() {
   return (
     <section className="pt-32">
@@ -10,21 +12,8 @@ export default function Hero() {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem impedit quaerat nostrum tenetur, eveniet ratione harum blanditiis reiciendis nisi nobis quisquam. Sequi voluptates.
         </h2>
       </div>
-
-      <form className="inline-flex items-center shadow-sm">
-        <span className="py-2 bg-white pl-4">streamlink.com/</span>
-        <input
-          type="text"
-          className="py-2 outline-none"
-          placeholder="nombredeusuario"
-        />
-        <button
-          className="bg-green text-white py-2 px-6"
-          type="submit"
-        >
-          Unete gratis
-        </button>
-      </form>
+      <HeroForm />
+      
     </section>
   )
 }
