@@ -1,7 +1,5 @@
 'use client'
-import LoginGoogle from '@/components/buttons/loginGoogle'
-import React from 'react'
-
+import LoginGoogle from '@/components/buttons/LoginGoogle'
 
 export default function LoginPage() {
   return (
