@@ -1,4 +1,3 @@
-import React from 'react'
 import HeroForm from './forms/HeroForm'
 
 export default function Hero() {
