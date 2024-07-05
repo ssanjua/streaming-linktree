@@ -1,6 +1,11 @@
+import { getServerSession } from 'next-auth'
 import HeroForm from './forms/HeroForm'
+import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 
-export default function Hero() {
+export default async function Hero() {
+  // @ts-ignore
+  const session = await getServerSession(authOptions)
+  
   return (
     <section className="pt-32">
       <div className="max-w-sm mb-6">
@@ -12,7 +17,7 @@ export default function Hero() {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem impedit quaerat nostrum tenetur, eveniet ratione harum blanditiis reiciendis nisi nobis quisquam. Sequi voluptates.
         </h2>
       </div>
-      <HeroForm />
+      <HeroForm user={session?.user} />
       
     </section>
   )
